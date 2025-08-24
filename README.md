@@ -17,31 +17,36 @@
 
 ![myxellia Desktop Demo](./assets/images/Screenshot%202025-08-24%20194307.png "Desktop Demo")
 
-✨ Features
 
-Responsive Header & Navigation – Scales smoothly across devices.
+<h3>✨ Features</h3>
 
-Budgeting Calculator – Open/close modal for managing budgets.
+1. Responsive Header & Navigation – Scales smoothly across devices.
 
-Interactive Calendar – Navigate months with a styled modal view.
+2. Budgeting Calculator – Open/close modal for managing budgets.
 
-Sales Overview – Data visualization powered by Chart.js.
+3. Interactive Calendar – Navigate months with a styled modal view.
 
-Listings & Users Overview – Summary cards and dynamic highlights.
+4. Sales Overview – Data visualization powered by Chart.js.
 
-Accessible UI – Uses ARIA roles/labels for better usability.
+5. Listings & Users Overview – Summary cards and dynamic highlights.
 
-🛠️ Tech Stack
+6. Accessible UI – Uses ARIA roles/labels for better usability.
 
-HTML5 – Semantic and accessible structure
+   
 
-CSS3 (Flexbox & Grid) – Responsive layout and styling
+<h3>🛠️ Tech Stack</h3>
 
-JavaScript (ES6+) – Interactivity and modal handling
+1. HTML5 – Semantic and accessible structure
 
-Chart.js – Sales bar chart visualization
+2. CSS3 (Flexbox & Grid) – Responsive layout and styling
 
-Vercel – Deployment and hosting
+3. JavaScript (ES6+) – Interactivity and modal handling
+
+4. Chart.js – Sales bar chart visualization
+
+5. Vercel – Deployment and hosting
+
+   
 
 ### Prerequisites
 
