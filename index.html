@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/cc4fdc01eb.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+
+
+        <div class="logo" aria-label="Myxellia logo">
+            <img src="/assets/images/Vector.png" alt="Star Icon" width="20" height="20">
+            myxellia
+        </div>
+
+        <div class="header-icons" role="toolbar" aria-label="User action icons">
+            <button class="header-icon-btn" aria-label="Notifications">
+                <img src="/assets/images/bell.png" alt="bell">
+            </button>
+            <button class="header-icon-btn" id="openCalculator" aria-label="Calculator">
+                <img src="/assets/images/calculator (1).png" alt="calculator">
+            </button>
+            <button class="header-icon-btn" aria-label="Calendar">
+                <img src="/assets/images/calendar (1).png" alt="calendar">
+            </button>
+            <button class="header-icon-btn" aria-label="Chat messages">
+                <img src="/assets/images/message-notif.png" alt="chat">
+            </button>
+            <div class="profile-circle" aria-label="User profile initial">D</div>
+        </div>
+
+        <button class="nav-toggle-btn" aria-label="menu toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+    </header>
+
+    <!-- <header>
+        <div class="logo" aria-label="Myxellia logo">
+            <img src="/assets/images/Vector.png" alt="Star Icon" width="20" height="20">
+
+            myxellia
+        </div>
+        <div class="header-icons" role="toolbar" aria-label="User action icons">
+            <button class="header-icon-btn" aria-label="Notifications">
+                <img src="/assets/images/bell.png" alt="bell">
+            </button>
+            <button class="header-icon-btn" id="openCalculator" aria-label="Calculator">
+                <img src="/assets/images/calculator (1).png" alt="calculator">
+            </button>
+
+            <button class="header-icon-btn" aria-label="Calendar">
+                <button class="header-icon-btn" aria-label="Notifications">
+                    <img src="/assets/images/calendar (1).png" alt="calender">
+                </button>
+                <button class="header-icon-btn" aria-label="Chat messages">
+                    <button class="header-icon-btn" aria-label="Notifications">
+                        <img src="/assets/images/message-notif.png" alt="chat">
+                    </button>
+                    <div class="profile-circle" aria-label="User profile initial">D</div>
+
+                    <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </button>
+        </div>
+    </header> -->
+
+    <!-- Calendar Modal -->
+    <div id="calendarModal" class="calendar-modal hidden">
+        <div class="calendar-top">
+            <div class="left-controls">
+                <span id="backArrow">&#10094;</span>
+                <h3>Calendar</h3>
+            </div>
+            <button id="closeCalendar" class="close-btn">✕</button>
+        </div>
+
+        <div class="calendar-header">
+            <span id="prevMonth">&#10094;</span>
+            <h2 id="calendarMonth">November 2023</h2>
+            <span id="nextMonth">&#10095;</span>
+        </div>
+
+        <div class="calendar-weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+
+        <div class="calendar-grid"></div>
+    </div>
+
+    <!-- Calculator Modal -->
+    <div id="calculatorModal" class="calculator-modal hidden">
+        <div class="calculator-top">
+            <div class="left-controls">
+                <h3>Budgeting</h3>
+            </div>
+            <button id="closeCalculator" class="close-btn" aria-label="Close budgeting">✕</button>
+        </div>
+
+
+        <div class="calculator-hero" aria-hidden="true">
+
+            <img src="/assets/images/calculator (2).png" alt="" />
+        </div>
+
+        <div class="calculator-body">
+            <div class="feature">
+                <img src="/assets/images/setting-4.png" alt="Budget categories" class="feature-icon">
+                <div>
+                    <h4>Set up annual budgets by account category</h4>
+                    <p>Allocate funds across income and expense lines with full visibility.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <img src="/assets/images/trend-up.png" alt="Real-time tracking" class="feature-icon">
+                <div>
+                    <h4>Track actuals vs budget in real time</h4>
+                    <p>See how your community is performing against plan, month by month.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <img src="/assets/images/align-bottom.png" alt="Forecasting" class="feature-icon">
+                <div>
+                    <h4>Adjust figures and forecast with ease</h4>
+                    <p>Edit amounts, apply percentage changes, or roll forward last year’s data—all in one place.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator-footer">
+            <button class="create-btn">Create Budget</button>
+        </div>
+    </div>
+
+
+    <nav role="navigation" aria-label="Primary navigation">
+
+        <div class="nav-links" role="menubar">
+            <a href="#" class="nav-link active" role="menuitem" tabindex="0" aria-current="page">
+                <img src="/assets/images/Home 1.png" alt="home">
+
+                <span>home</span>
+            </a>
+            <a href="#" class="nav-link" role="menuitem" tabindex="-1">
+                <img src="/assets/images/Vector 5.png" alt="home">
+
+                <span>Listings</span>
+            </a>
+            <a href="#" class="nav-link" role="menuitem" tabindex="-1">
+                <img src="/assets/images/Profile 1.png" alt="home">
+
+                <span>Users</span>
+            </a>
+            <a href="#" class="nav-link" role="menuitem" tabindex="-1">
+                <img src="/assets/images/Article.png" alt="home">
+
+                <span>Request</span>
+            </a>
+            <a href="#" class="nav-link" role="menuitem" tabindex="-1">
+                <img src="/assets/images/Scroll.png " alt="home">
+
+                <span>Applications</span>
+            </a>
+        </div>
+        <div class="nav-search">
+            <label for="searchInput" class="sr-only">Search listings, users here</label>
+            <div class="search-wrapper">
+                <img src="/assets/images/Search 1.png" alt="" class="search-icon">
+                <input type="search" id="searchInput" placeholder="Search listings, users here..."
+                    aria-label="Search listings and users" />
+            </div>
+        </div>
+
+    </nav>
+    <main>
+        <h2>Welcome, Ahmed</h2>
+        <section class="sales-overview" aria-label="Sales Overview">
+            <div class="sales-header">
+                <h3>Sales Overview</h3>
+                <button class="btn-transactions" aria-label="View Transactions">View Transactions</button>
+            </div>
+            <div class="subtext" style="margin-bottom:18px;">Showing overview Jan 2022 - Sep 2022</div>
+            <div class="time-filters" role="tablist" aria-label="Select time filter">
+                <button role="tab" aria-selected="false" tabindex="0" class="time-filter-btn" data-period="week">1
+                    Week</button>
+                <button role="tab" aria-selected="false" tabindex="0" class="time-filter-btn" data-period="month">1
+                    Month</button>
+                <button role="tab" aria-selected="true" tabindex="0" class="time-filter-btn active" data-period="year">1
+                    Year</button>
+            </div>
+            <hr class="line">
+            <!-- Dashboard Row Wrapper -->
+            <div class="dashboard-row">
+
+                <!-- Chart + Sales Cards -->
+                <div class="chart-wrapper">
+                    <div class="chart-area" aria-label="Bar chart illustration of sales data over months" role="img"
+                        aria-roledescription="bar chart" tabindex="0">
+                        <div class="chart-axis" aria-hidden="true"></div>
+
+                        <div class="chart-and-cards">
+                            <div class="chart">
+                                <canvas id="salesChart" width="600" height="300"
+                                    style="display: block; box-sizing: border-box; height: 150px; width: 100%;"></canvas>
+                            </div>
+
+                            <div class="sales-cards" aria-label="Sales related numeric summaries">
+                                <div class="card-data" tabindex="0"
+                                    aria-label="Total Inflow: 120 million Nigerian Naira. Increased by 2.5 percent">
+                                    <div class="main-value" style="color:#2528ff;">₦120,000,000.00</div>
+                                    <div class="desc">Total Inflow</div>
+                                    <div class="change up">
+                                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                                            <path d="M7 14l5-5 5 5z" />
+                                        </svg>
+                                        2.5%
+                                    </div>
+                                </div>
+
+                                <div class="card-data" tabindex="0"
+                                    aria-label="Monthly recurring revenue: 50 million Nigerian Naira. Increased by 2.5 percent">
+                                    <div class="main-value" style="color:#008000;">₦50,000,000.00</div>
+                                    <div class="desc">MRR</div>
+                                    <div class="change up">
+                                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                                            <path d="M7 14l5-5 5 5z" />
+                                        </svg>
+                                        2.5%
+                                    </div>
+                                </div>
+
+                                <div class="card-data" tabindex="0"
+                                    aria-label="Commission Revenue: 200 million Nigerian Naira. Increased by 0.5 percent">
+                                    <div class="main-value" style="color:#05e0c2;">₦200,000,000.00</div>
+                                    <div class="desc">Commission Revenue</div>
+                                    <div class="change up">
+                                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                                            <path d="M7 14l5-5 5 5z" />
+                                        </svg>
+                                        0.5%
+                                    </div>
+                                </div>
+
+                                <div class="card-data" tabindex="0"
+                                    aria-label="Gross Merchandise Value: 100 million Nigerian Naira. Decreased by 0.5 percent">
+                                    <div class="main-value" style="color:#dc544b;">₦100,000,000.00</div>
+                                    <div class="desc">GMV</div>
+                                    <div class="change down">
+                                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                                            <path d="M7 10l5 5 5-5z" />
+                                        </svg>
+                                        0.5%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="overview-wrapper" aria-label="Overview summaries">
+                        <section class="overview-card" aria-labelledby="listingsOverviewTitle">
+                            <div class="overview-header">
+                                <h4 id="listingsOverviewTitle">
+                                    <img src="/assets/images/solar_home-linear.png" alt="home">
+
+                                    Listings Overview
+                                </h4>
+                                <a href="#" aria-label="View all listings">View all
+                                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                                        <path d="M9 6l6 6-6 6" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="overview-stats" aria-live="polite">
+                                <div><small>Total</small><span>1.8k</span></div>
+                                <div><small>Active</small><span>80</span></div>
+                                <div><small>Archived</small><span>1k</span></div>
+                            </div>
+                        </section>
+
+                        <section class="overview-card" aria-labelledby="usersOverviewTitle">
+                            <div class="overview-header">
+                                <h4 id="usersOverviewTitle">
+                                    <img src="/assets/images/profile.png" alt="profile">
+                                    Users Overview
+                                </h4>
+                                <a href="#" aria-label="View all users">View all
+                                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                                        <path d="M9 6l6 6-6 6" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="overview-stats" aria-live="polite">
+                                <div><small>Total</small><span>20.7k</span></div>
+                                <div><small>Riders</small><span>8.5k</span></div>
+                                <div><small>Subscribers</small><span>7.5k</span></div>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Listings cards row -->
+            <section class="listings-row" aria-label="Listings highlights">
+                <article class="listing-card" aria-label="Most clicked listing: Urban Prime Plaza Premiere"
+                    tabindex="0">
+                    <!-- The first image was not provided on the figma file so i had to get this from the internet -->
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/10ff29d3-7905-4681-9e41-14b04fcaf6a1.png"
+                        alt="Modern black and orange office building with blue sky background, low angle view emphasizing sharp geometry"
+                        onerror="this.style.display='none';" />
+                    <div class="listing-gradient"></div>
+                    <div class="listing-info">
+                        <small>MOST CLICKED</small>
+                        Urban Prime Plaza Premiere
+                    </div>
+                    <div class="listing-dots">
+                        <span class="dot active" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                    </div>
+                </article>
+                <article class="listing-card" aria-label="Most watchlisted listing: Urban Prime Plaza Premiere"
+                    tabindex="0">
+                    <img src="assets/images/imgg.png"
+                        alt="#"
+                        onerror="this.style.display='none';" />
+                    <div class="listing-gradient"></div>
+                    <div class="listing-info">
+                        <small>MOST WATCHLISTED</small>
+                        Urban Prime Plaza Premiere
+                    </div>
+                    <div class="listing-dots">
+                        <span class="dot active" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                    </div>
+                </article>
+                <article class="listing-card" aria-label="Hottest listing: Urban Prime Plaza Premiere" tabindex="0"
+                    style="position:relative;">
+                    <img src="assets/images/img.png"
+                        alt="#"
+                        onerror="this.style.display='none';" />
+                    <div class="listing-gradient"></div>
+                    <div class="listing-info">
+                        <small>HOTTEST LISTING</small>
+                        Urban Prime Plaza Premiere
+                    </div>
+                    <div class="listing-dots">
+                        <span class="dot active" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                    </div>
+                    <button class="chat-bubble-btn" aria-label="Open chat messages">
+                         <img src="/assets/images/Footer.png" alt="chat icon">
+                    </button>
+                </article>
+            </section>
+    </main>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
